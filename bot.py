@@ -5,10 +5,14 @@ from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
 from tgbot.handlers.admin import register_admin
-from tgbot.handlers.user import register_user
+from tgbot.handlers.start import register_start
+from tgbot.handlers.help import register_help
+from tgbot.handlers.classes.class_7 import register_classes_7
+from tgbot.handlers.classes.class_8 import register_classes_8
+from tgbot.handlers.classes.class_9 import register_classes_9
 from tgbot.filters.admin import AdminFilter
 from tgbot.middlewares.environment import EnvironmentMiddleware
-from tgbot.services import load_config
+from tgbot.config import load_config
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +27,11 @@ def register_all_filters(dp):
 
 def register_all_handlers(dp):
     register_admin(dp)
-    register_user(dp)
+    register_start(dp)
+    register_help(dp)
+    register_classes_7(dp)
+    register_classes_8(dp)
+    register_classes_9(dp)
 
     
 
